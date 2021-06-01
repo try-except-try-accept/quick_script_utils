@@ -4,10 +4,10 @@ import requests
 from bs4 import BeautifulSoup as Soup
 
 from shutil import copyfileobj
-url = "https://www.google.com/search?q=Grade+thresholds+{}"
+url = "https://www.google.com/search?q=Grade+thresholds+{}+site%3Ahttp%3A%2F%2Fcambridgeinternational.org"
 
 
-ALL_COURSES = ["9608"]
+ALL_COURSES = ["0417"]
 
 for year in range (2015, 2021, 1):
 
@@ -23,12 +23,17 @@ for year in range (2015, 2021, 1):
 
                if "Images" in pdf_link:
                     fn = pdf_link.split("/Images/")[1]
-               else:
+               elif "images" in pdf_link:
                     fn = pdf_link.split("/images/")[1]
+               else:
+                    print(pdf_link)
+                    print("problem")
+                    continue
 
                try:
                     with open(fn, "wb") as f:
                          f.write(requests.get(pdf_link, stream=True).content)
+                    print(fn)
                except Exception as e:
                     print(e)
                     print("Problem scraping", pdf_link)
