@@ -49,7 +49,7 @@ find_and_click_html_elem("span", "textContent", "Google")
 sleep(2)
 driver.switch_to.window(driver.window_handles[1])
 element = find_and_click_html_elem("input", "type", "email")
-element.send_keys("Enter Google email: ")
+element.send_keys(input("Enter Google email: "))
 find_and_click_html_elem("button", "textContent", "ถัดไป")
 sleep(2)
 element = find_and_click_html_elem("input", "type", "password")
@@ -59,7 +59,7 @@ sleep(5)
 driver.switch_to.window(driver.window_handles[0])
 
 
-wait_for_page("Enter URL of repl.it teams for Edu project and navigate to the input/output matching test setup page:")
+wait_for_page(input("Enter URL of repl.it teams for Edu project and navigate to the input/output matching test setup page:"))
 
    
 input("Ready?")
