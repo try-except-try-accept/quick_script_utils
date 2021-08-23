@@ -53,7 +53,7 @@ element.send_keys(input("Enter Google email: "))
 find_and_click_html_elem("button", "textContent", "ถัดไป")
 sleep(2)
 element = find_and_click_html_elem("input", "type", "password")
-element.send_keys(input("Enter Google password: ")
+element.send_keys(input("Enter Google password: "))
 find_and_click_html_elem("button", "textContent", "ถัดไป")
 sleep(5)
 driver.switch_to.window(driver.window_handles[0])
@@ -69,19 +69,19 @@ input("Ready?")
 
 
 i = 0
+folder = input("Enter repl folder name: ")
+folder_path = "C:\\Users\\chall\\Google Drive\\Python\\repl_scrape\\actual_export\\"+folder + "\\input-output matching"
 
-for fn in listdir():
+for fn in listdir(folder_path):
      
-
-   
 
      if fn.endswith(".in"):
           i += 1
 
-          with open(fn, encoding="utf-8") as in_file:
+          with open(folder_path+"/"+fn, encoding="utf-8") as in_file:
                ins = in_file.readlines()
                
-          with open(fn.replace(".in", ".out"), encoding="utf-8") as out_file:
+          with open(folder_path+"/"+fn.replace(".in", ".out"), encoding="utf-8") as out_file:
                outs = out_file.readlines()
 
 
@@ -108,3 +108,5 @@ for fn in listdir():
           sleep(1)
           
           print("Completed auto input of ", fn)
+
+print(f"Imported {i} tests")
