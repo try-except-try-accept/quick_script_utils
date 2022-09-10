@@ -22,7 +22,7 @@ function collate_comments(folder_id, comment_tracker, student=null)
   {
     let f = files.next()
     let id = f.getId()
-    let this_file = new Array(MAX_COMMENTS).fill('') // because .setValues() does not except irregular shaped arrays
+    let this_file = new Array(MAX_COMMENTS).fill('') // because .setValues() does not accept irregular shaped arrays
     this_file[0] = student
     this_file[1] = f.getName();
     this_file[2] = f.getUrl();
